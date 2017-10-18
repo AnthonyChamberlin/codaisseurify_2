@@ -1,0 +1,11 @@
+<h3> Add a new song to this artist </h3>
+<br>
+<br>
+
+<%= form_for [:artist, @song] do |f| %>
+  <%= f.label :title %>
+  <%= f.text_field :title %>
+
+  <%= f.button :submit %>
+
+<% end %>
