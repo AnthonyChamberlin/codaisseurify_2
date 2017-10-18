@@ -1,0 +1,5 @@
+<% @artist.songs.each do |song| %>
+  <h3><%= song.title %></h3>
+<% end %>
+
+<%= render 'songs/form' %>
