@@ -4,7 +4,7 @@ class Artist < ApplicationRecord
   validates :name, presence: true
 
   def self.order_by_name
-    order(:name)
+    order :name
   end
 
   def self.order_by_join
