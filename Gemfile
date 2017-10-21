@@ -40,10 +40,13 @@ group :development, :test do
   gem 'factory_girl_rails'
   gem 'faker'
   gem 'shoulda-matchers'
+  gem 'capybara'
+  gem 'selenium-webdriver'
+  gem "chromedriver-helper"
 end
 
 group :test do
-  gem 'capybara'
+  gem 'database_cleaner'
 end
 group :development do
   # Access an IRB console on exception pages or by using <%= console %> anywhere in the code.
