@@ -14,9 +14,12 @@
 <!-- <h3 class="text-center"><%= link_to "Add a new #{@artist.name} song",
 new_artist_song_path(@artist), class:"btn btn-success" %></h3> -->
 
-<form onSubmit="submitSong(); return false">
-    <input type="text" id="newSong" placeholder="Add a Song">
-  </form>
+<div class="container text-center">
+  <form onSubmit="submitSong(); return false">
+      <input type="text" id="newSong" placeholder="Add a Song">
+    </form>
+</div>
+
 
 <ul id="songListUl">
 <% @songs.each do |song| %>
@@ -40,7 +43,14 @@ new_artist_song_path(@artist), class:"btn btn-success" %></h3> -->
 
 
 <div class="container-fluid buttons_row">
-  <div class="col-xs-12">
+  <div class="col-xs-6">
+    <%= form_for [@artist, @artist.songs.new], :html => { :style => 'padding-bottom:0px;' } do |f| %>
+          <%= f.label :title %>
+          <%= f.text_field :title %>
+          <%= f.submit "New Song" %>
+      <% end %>
+  </div>
+  <div class="col-xs-6">
     <div class="text-center">
       <%= link_to artists_path do %>
         <i class="fa fa-arrow-circle-o-left fa-3x" aria-hidden="true"></i>
