@@ -30,7 +30,12 @@
         <div class="col-md-4">
               <div class="col-xs-12 inner_artist">
                 <div class="row image_and_title">
-                  <div class="col-xs-3"><%= image_tag artist.remote_image_url, class:"artist_images" %>
+                  <div class="col-xs-3">
+                    <% if artist.remote_image_url == nil %>
+                    <h3>no image to display %>
+                      <% else %>
+                    <%= image_tag artist.remote_image_url, class:"artist_images" %>
+                    <% end %>
                     </div>
                   <div class="col-xs-9">
                     <h3 class="text-center"><%= link_to artist.name, artist_path(artist.id), class:"artist_name" %></h3>

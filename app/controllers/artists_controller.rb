@@ -11,6 +11,7 @@ class ArtistsController < ApplicationController
 
     def create
       @songs = @artist.songs
+      
     end
 
     def destroy

@@ -1,6 +1,11 @@
 class SongsController < ApplicationController
   before_action :find_artist, only: [:create]
 
+  def index
+    @songs = Song.all
+  end
+
+
   def new
     @song = Song.new
   end
@@ -8,8 +13,18 @@ class SongsController < ApplicationController
   def create
     @artist = Artist.find(params[:artist_id])
     @song = @artist.songs.create(song_params)
-    redirect_to artist_path(@artist)
-   end
+
+    respond_to do |format|
+      if @song.save
+        format.html { redirect_to artist_path(@artist), notice: 'Song Created!' }
+        format.json { render :show, status: :created, location: @artist }
+      else
+        format.html { redirect_to root_path }
+        format.json { render json: @artist.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
 
    def destroy
      @artist = Artist.find(params[:artist_id])
