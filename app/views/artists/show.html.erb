@@ -15,17 +15,15 @@
 new_artist_song_path(@artist), class:"btn btn-success" %></h3> -->
 
 <div class="container text-center">
-  <form onSubmit="submitSong(); return false">
-      <input type="text" id="newSong" placeholder="Add a Song">
+ <form id="song_submit">
+      <input type="text" id="newSong" placeholder="Add a Song" data-artist-id="<%= @artist.id %>">
     </form>
 </div>
 
-
-<ul id="songListUl">
+<ul id="songlist">
 <% @songs.each do |song| %>
 <div class="col-md-4 col_4">
-
-  <li>
+  <li class="song">
       <div class="col-xs-12 inner_song">
         <div class="col-xs-10"><h3 class="text-center"><%= song.title %></h3></div>
         <div class="col-xs-2">
@@ -36,7 +34,6 @@ new_artist_song_path(@artist), class:"btn btn-success" %></h3> -->
         </div>
       </div>
     </li><!-- end song class -->
-
     </div>
 <% end %>
 </ul>
