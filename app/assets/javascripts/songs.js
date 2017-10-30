@@ -80,3 +80,17 @@ function createSong(title) {
   .fail(function(error){
   });
 }
+
+function deleteSong(songId){
+
+  $.ajax({
+    type: "DELETE",
+    url: `songs/${songId}.json`,
+    contentType: "application/json",
+    dataType: "json"
+  })
+  .done(function(data){
+    var item = document.getElementById(songId);
+    item.parentNode.removeChild(item);
+  });
+}
